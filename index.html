@@ -5,11 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alpha Signal | AI-Powered Chart Pattern Recognition</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
             --blue-primary: #0066ff;
@@ -29,6 +25,17 @@
             line-height: 1.6;
             overflow-x: hidden;
         }
+
+        /* BETA BANNER */
+        .beta-banner {
+            background: linear-gradient(135deg, rgba(0,102,255,0.15), rgba(0,170,255,0.15));
+            border-bottom: 1px solid rgba(0,102,255,0.3);
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 0.85rem;
+            color: var(--blue-light);
+        }
+        .beta-banner strong { color: white; }
 
         /* NAV */
         nav {
@@ -51,10 +58,7 @@
             text-decoration: none;
         }
 
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-        }
+        .logo-icon { width: 40px; height: 40px; }
 
         .nav-logo span {
             font-size: 1.3rem;
@@ -65,11 +69,7 @@
             letter-spacing: 1px;
         }
 
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            align-items: center;
-        }
+        .nav-links { display: flex; gap: 30px; align-items: center; }
 
         .nav-links a {
             color: var(--text-secondary);
@@ -78,9 +78,7 @@
             transition: color 0.2s;
         }
 
-        .nav-links a:hover {
-            color: var(--text-primary);
-        }
+        .nav-links a:hover { color: var(--text-primary); }
 
         .btn-primary {
             background: linear-gradient(135deg, #0066ff, #00aaff);
@@ -96,10 +94,7 @@
             display: inline-block;
         }
 
-        .btn-primary:hover {
-            opacity: 0.9;
-            transform: translateY(-1px);
-        }
+        .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
 
         .btn-outline {
             background: transparent;
@@ -115,9 +110,7 @@
             display: inline-block;
         }
 
-        .btn-outline:hover {
-            background: var(--blue-glow);
-        }
+        .btn-outline:hover { background: var(--blue-glow); }
 
         /* HERO */
         .hero {
@@ -174,19 +167,34 @@
             margin: 0 auto 40px;
         }
 
-        .hero-cta {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
+        .hero-cta { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+        /* SETUP GUIDE */
+        .setup-guide {
+            background: rgba(0, 102, 255, 0.06);
+            border: 1px solid rgba(0, 102, 255, 0.2);
+            border-radius: 16px;
+            padding: 28px 32px;
+            margin-bottom: 24px;
         }
 
-        /* UPLOAD DEMO AREA */
-        .demo-section {
-            padding: 60px;
-            max-width: 900px;
-            margin: 0 auto;
+        .setup-guide h4 {
+            color: var(--blue-light);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
         }
+
+        .setup-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+
+        .setup-item { display: flex; align-items: flex-start; gap: 10px; font-size: 0.875rem; color: var(--text-secondary); }
+        .setup-item .setup-icon { color: var(--blue-light); font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+        .setup-item strong { color: var(--text-primary); display: block; margin-bottom: 2px; }
+
+        /* UPLOAD */
+        .demo-section { padding: 60px; max-width: 900px; margin: 0 auto; }
 
         .upload-area {
             border: 2px dashed var(--dark-border);
@@ -196,7 +204,6 @@
             cursor: pointer;
             transition: all 0.3s;
             background: var(--dark-card);
-            position: relative;
         }
 
         .upload-area:hover, .upload-area.dragover {
@@ -205,27 +212,10 @@
             box-shadow: 0 0 30px var(--blue-glow);
         }
 
-        .upload-icon {
-            width: 60px;
-            height: 60px;
-            margin: 0 auto 20px;
-            opacity: 0.6;
-        }
-
-        .upload-area h3 {
-            font-size: 1.2rem;
-            margin-bottom: 8px;
-        }
-
-        .upload-area p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            margin-bottom: 20px;
-        }
-
-        .upload-area input[type="file"] {
-            display: none;
-        }
+        .upload-icon { width: 60px; height: 60px; margin: 0 auto 20px; opacity: 0.6; }
+        .upload-area h3 { font-size: 1.2rem; margin-bottom: 8px; }
+        .upload-area p { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 20px; }
+        .upload-area input[type="file"] { display: none; }
 
         .free-badge {
             display: inline-block;
@@ -239,17 +229,47 @@
             margin-top: 16px;
         }
 
-        /* ZOOM CONTROLS */
-        .zoom-controls {
-            display: none;
-            justify-content: center;
+        /* TIER SELECTOR */
+        .tier-selector {
+            display: flex;
             gap: 12px;
-            margin-top: 16px;
+            justify-content: center;
+            margin: 20px 0;
         }
 
-        .zoom-controls.visible {
-            display: flex;
+        .tier-btn {
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid var(--dark-border);
+            background: var(--dark-card);
+            color: var(--text-secondary);
         }
+
+        .tier-btn.active {
+            background: linear-gradient(135deg, #0066ff, #00aaff);
+            border-color: transparent;
+            color: white;
+        }
+
+        /* ANALYZE BUTTON */
+        .analyze-btn {
+            display: none;
+            margin: 16px auto 0;
+            padding: 12px 32px;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 8px;
+        }
+
+        .analyze-btn.visible { display: block; }
+
+        /* ZOOM */
+        .zoom-controls { display: none; justify-content: center; gap: 12px; margin-top: 16px; }
+        .zoom-controls.visible { display: flex; }
 
         .zoom-btn {
             background: var(--dark-card);
@@ -266,23 +286,17 @@
             justify-content: center;
         }
 
-        .zoom-btn:hover {
-            border-color: var(--blue-primary);
-            color: var(--blue-light);
-        }
+        .zoom-btn:hover { border-color: var(--blue-primary); color: var(--blue-light); }
 
         .image-preview-container {
             display: none;
             margin-top: 20px;
-            position: relative;
             overflow: hidden;
             border-radius: 12px;
             border: 1px solid var(--dark-border);
         }
 
-        .image-preview-container.visible {
-            display: block;
-        }
+        .image-preview-container.visible { display: block; }
 
         #previewImage {
             width: 100%;
@@ -291,11 +305,145 @@
             display: block;
         }
 
-        /* HOW IT WORKS */
-        .how-it-works {
-            padding: 80px 60px;
+        /* LOADING */
+        .loading {
+            display: none;
             text-align: center;
+            padding: 40px;
+            margin-top: 24px;
         }
+
+        .loading.visible { display: block; }
+
+        .spinner {
+            width: 48px;
+            height: 48px;
+            border: 3px solid var(--dark-border);
+            border-top-color: var(--blue-primary);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 16px;
+        }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        .loading p { color: var(--text-secondary); font-size: 0.9rem; }
+
+        /* ANALYSIS RESULTS */
+        .analysis-results {
+            display: none;
+            margin-top: 24px;
+            background: var(--dark-card);
+            border: 1px solid var(--dark-border);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .analysis-results.visible { display: block; }
+
+        .results-header {
+            background: linear-gradient(135deg, rgba(0,102,255,0.15), rgba(0,170,255,0.1));
+            border-bottom: 1px solid var(--dark-border);
+            padding: 20px 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .results-header h3 { font-size: 1rem; font-weight: 700; }
+
+        .pattern-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .direction-tag {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .direction-tag.bullish { background: rgba(0,255,136,0.1); border: 1px solid rgba(0,255,136,0.3); color: #00ff88; }
+        .direction-tag.bearish { background: rgba(255,68,85,0.1); border: 1px solid rgba(255,68,85,0.3); color: #ff4455; }
+        .direction-tag.neutral { background: rgba(255,170,0,0.1); border: 1px solid rgba(255,170,0,0.3); color: #ffaa00; }
+
+        .confidence-tag {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            background: rgba(0,102,255,0.1);
+            border: 1px solid rgba(0,102,255,0.3);
+            color: var(--blue-light);
+        }
+
+        .results-body { padding: 28px; }
+
+        .result-summary {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--dark-border);
+        }
+
+        .pro-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .pro-item {
+            background: var(--dark-bg);
+            border: 1px solid var(--dark-border);
+            border-radius: 10px;
+            padding: 16px;
+        }
+
+        .pro-item label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--blue-light);
+            margin-bottom: 6px;
+        }
+
+        .pro-item p { font-size: 0.9rem; color: var(--text-primary); }
+
+        .upgrade-prompt {
+            background: linear-gradient(135deg, rgba(0,102,255,0.1), rgba(0,170,255,0.1));
+            border: 1px solid rgba(0,102,255,0.3);
+            border-radius: 12px;
+            padding: 20px 24px;
+            text-align: center;
+            margin-top: 8px;
+        }
+
+        .upgrade-prompt p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+        }
+
+        .disclaimer-note {
+            margin-top: 16px;
+            padding: 12px 16px;
+            background: rgba(255,170,0,0.05);
+            border: 1px solid rgba(255,170,0,0.15);
+            border-radius: 8px;
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* HOW IT WORKS */
+        .how-it-works { padding: 80px 60px; text-align: center; }
 
         .section-label {
             color: var(--blue-light);
@@ -306,12 +454,7 @@
             margin-bottom: 16px;
         }
 
-        .section-title {
-            font-size: 2.2rem;
-            font-weight: 800;
-            margin-bottom: 16px;
-            letter-spacing: -0.5px;
-        }
+        .section-title { font-size: 2.2rem; font-weight: 800; margin-bottom: 16px; letter-spacing: -0.5px; }
 
         .section-subtitle {
             color: var(--text-secondary);
@@ -320,13 +463,7 @@
             margin: 0 auto 60px;
         }
 
-        .steps-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
+        .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 900px; margin: 0 auto; }
 
         .step-card {
             background: var(--dark-card);
@@ -337,10 +474,7 @@
             transition: border-color 0.3s, box-shadow 0.3s;
         }
 
-        .step-card:hover {
-            border-color: var(--blue-primary);
-            box-shadow: 0 0 20px var(--blue-glow);
-        }
+        .step-card:hover { border-color: var(--blue-primary); box-shadow: 0 0 20px var(--blue-glow); }
 
         .step-number {
             width: 40px;
@@ -355,30 +489,83 @@
             margin-bottom: 20px;
         }
 
-        .step-card h3 {
-            font-size: 1.05rem;
-            font-weight: 700;
-            margin-bottom: 10px;
+        .step-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; }
+        .step-card p { color: var(--text-secondary); font-size: 0.9rem; }
+
+        /* TIMEFRAME */
+        .timeframe-section { padding: 80px 60px; text-align: center; }
+
+        .timeframe-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 800px; margin: 0 auto; }
+
+        .timeframe-card {
+            background: var(--dark-card);
+            border: 1px solid var(--dark-border);
+            border-radius: 16px;
+            padding: 32px 28px;
+            text-align: left;
+            transition: border-color 0.3s, box-shadow 0.3s;
         }
 
-        .step-card p {
+        .timeframe-card:hover { border-color: var(--blue-primary); box-shadow: 0 0 20px var(--blue-glow); }
+
+        .timeframe-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .timeframe-badge.long { background: rgba(0,255,136,0.1); border: 1px solid rgba(0,255,136,0.3); color: #00ff88; }
+        .timeframe-badge.short { background: rgba(0,170,255,0.1); border: 1px solid rgba(0,170,255,0.3); color: var(--blue-light); }
+
+        .timeframe-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 12px; }
+
+        .timeframe-list { list-style: none; margin-bottom: 16px; }
+
+        .timeframe-list li {
+            font-size: 0.875rem;
             color: var(--text-secondary);
-            font-size: 0.9rem;
+            padding: 6px 0;
+            border-bottom: 1px solid var(--dark-border);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .timeframe-list li:last-child { border-bottom: none; }
+        .timeframe-list li span { color: var(--blue-light); }
+
+        .glossary-teaser {
+            background: linear-gradient(135deg, rgba(0,102,255,0.08), rgba(0,170,255,0.08));
+            border: 1px solid rgba(0,102,255,0.2);
+            border-radius: 12px;
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 800px;
+            margin: 24px auto 0;
+        }
+
+        .glossary-teaser p { color: var(--text-secondary); font-size: 0.9rem; margin: 0; }
+
+        .coming-soon-tag {
+            background: rgba(255,170,0,0.1);
+            border: 1px solid rgba(255,170,0,0.3);
+            color: #ffaa00;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            white-space: nowrap;
         }
 
         /* PRICING */
-        .pricing {
-            padding: 80px 60px;
-            text-align: center;
-        }
+        .pricing { padding: 80px 60px; text-align: center; }
 
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
-            max-width: 700px;
-            margin: 0 auto;
-        }
+        .pricing-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 700px; margin: 0 auto; }
 
         .pricing-card {
             background: var(--dark-card);
@@ -389,10 +576,7 @@
             position: relative;
         }
 
-        .pricing-card.featured {
-            border-color: var(--blue-primary);
-            box-shadow: 0 0 30px var(--blue-glow);
-        }
+        .pricing-card.featured { border-color: var(--blue-primary); box-shadow: 0 0 30px var(--blue-glow); }
 
         .popular-badge {
             position: absolute;
@@ -408,38 +592,11 @@
             white-space: nowrap;
         }
 
-        .pricing-tier {
-            font-size: 0.8rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--text-secondary);
-            margin-bottom: 16px;
-        }
-
-        .pricing-price {
-            font-size: 2.8rem;
-            font-weight: 800;
-            margin-bottom: 4px;
-            letter-spacing: -1px;
-        }
-
-        .pricing-price span {
-            font-size: 1rem;
-            font-weight: 400;
-            color: var(--text-secondary);
-        }
-
-        .pricing-desc {
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-            margin-bottom: 24px;
-        }
-
-        .pricing-features {
-            list-style: none;
-            margin-bottom: 28px;
-        }
+        .pricing-tier { font-size: 0.8rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 16px; }
+        .pricing-price { font-size: 2.8rem; font-weight: 800; margin-bottom: 4px; letter-spacing: -1px; }
+        .pricing-price span { font-size: 1rem; font-weight: 400; color: var(--text-secondary); }
+        .pricing-desc { color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 24px; }
+        .pricing-features { list-style: none; margin-bottom: 28px; }
 
         .pricing-features li {
             font-size: 0.9rem;
@@ -451,27 +608,42 @@
             color: var(--text-secondary);
         }
 
-        .pricing-features li:last-child {
-            border-bottom: none;
+        .pricing-features li:last-child { border-bottom: none; }
+        .check { color: #00ff88; font-weight: 700; flex-shrink: 0; }
+        .x-mark { color: #ff4455; font-weight: 700; flex-shrink: 0; }
+
+        /* FAQ */
+        .faq-section { padding: 80px 60px; }
+        .faq-grid { max-width: 800px; margin: 0 auto; }
+        .faq-item { border-bottom: 1px solid var(--dark-border); padding: 20px 0; }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            gap: 16px;
         }
 
-        .check {
-            color: #00ff88;
-            font-weight: 700;
-            flex-shrink: 0;
+        .faq-question:hover { color: var(--blue-light); }
+        .faq-arrow { color: var(--blue-light); font-size: 1.2rem; transition: transform 0.3s; flex-shrink: 0; }
+        .faq-item.open .faq-arrow { transform: rotate(180deg); }
+
+        .faq-answer {
+            display: none;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            padding-top: 14px;
         }
 
-        .x-mark {
-            color: #ff4455;
-            font-weight: 700;
-            flex-shrink: 0;
-        }
+        .faq-item.open .faq-answer { display: block; }
 
         /* WAITLIST */
-        .waitlist {
-            padding: 80px 60px;
-            text-align: center;
-        }
+        .waitlist { padding: 80px 60px; text-align: center; }
 
         .waitlist-box {
             background: var(--dark-card);
@@ -482,22 +654,10 @@
             margin: 0 auto;
         }
 
-        .waitlist-box h2 {
-            font-size: 1.8rem;
-            font-weight: 800;
-            margin-bottom: 12px;
-        }
+        .waitlist-box h2 { font-size: 1.8rem; font-weight: 800; margin-bottom: 12px; }
+        .waitlist-box p { color: var(--text-secondary); margin-bottom: 28px; font-size: 0.95rem; }
 
-        .waitlist-box p {
-            color: var(--text-secondary);
-            margin-bottom: 28px;
-            font-size: 0.95rem;
-        }
-
-        .email-form {
-            display: flex;
-            gap: 12px;
-        }
+        .email-form { display: flex; gap: 12px; }
 
         .email-form input {
             flex: 1;
@@ -511,20 +671,11 @@
             transition: border-color 0.2s;
         }
 
-        .email-form input:focus {
-            border-color: var(--blue-primary);
-        }
-
-        .email-form input::placeholder {
-            color: var(--text-secondary);
-        }
+        .email-form input:focus { border-color: var(--blue-primary); }
+        .email-form input::placeholder { color: var(--text-secondary); }
 
         /* DISCLAIMER */
-        .disclaimer {
-            padding: 40px 60px;
-            border-top: 1px solid var(--dark-border);
-            text-align: center;
-        }
+        .disclaimer { padding: 40px 60px; border-top: 1px solid var(--dark-border); text-align: center; }
 
         .disclaimer p {
             color: var(--text-secondary);
@@ -543,26 +694,10 @@
             align-items: center;
         }
 
-        footer p {
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-        }
-
-        footer a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.85rem;
-            transition: color 0.2s;
-        }
-
-        footer a:hover {
-            color: var(--text-primary);
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 24px;
-        }
+        footer p { color: var(--text-secondary); font-size: 0.85rem; }
+        footer a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+        footer a:hover { color: var(--text-primary); }
+        .footer-links { display: flex; gap: 24px; }
 
         /* RESPONSIVE */
         @media (max-width: 768px) {
@@ -570,17 +705,29 @@
             .hero { padding: 60px 24px 40px; }
             .hero h1 { font-size: 2.2rem; }
             .demo-section { padding: 40px 24px; }
+            .setup-grid { grid-template-columns: 1fr; }
             .how-it-works { padding: 60px 24px; }
             .steps-grid { grid-template-columns: 1fr; }
+            .timeframe-section { padding: 60px 24px; }
+            .timeframe-grid { grid-template-columns: 1fr; }
+            .pro-grid { grid-template-columns: 1fr; }
             .pricing { padding: 60px 24px; }
             .pricing-grid { grid-template-columns: 1fr; }
+            .faq-section { padding: 60px 24px; }
             .waitlist { padding: 60px 24px; }
             .email-form { flex-direction: column; }
+            .glossary-teaser { flex-direction: column; gap: 12px; text-align: center; }
             footer { flex-direction: column; gap: 16px; text-align: center; }
+            .disclaimer { padding: 40px 24px; }
         }
     </style>
 </head>
 <body>
+
+    <!-- BETA BANNER -->
+    <div class="beta-banner">
+        🚀 <strong>Alpha Signal is in Beta</strong> — AI analysis engine launching soon. Join the waitlist for early access.
+    </div>
 
     <!-- NAV -->
     <nav>
@@ -599,7 +746,9 @@
         </a>
         <div class="nav-links">
             <a href="#how-it-works">How It Works</a>
+            <a href="#timeframes">Chart Guide</a>
             <a href="#pricing">Pricing</a>
+            <a href="#faq">FAQ</a>
             <a href="#waitlist" class="btn-primary">Get Early Access</a>
         </div>
     </nav>
@@ -617,6 +766,43 @@
 
     <!-- UPLOAD DEMO -->
     <section class="demo-section" id="demo">
+
+        <div class="setup-guide">
+            <h4>📊 For Best Results — Set Up Your Chart Like This</h4>
+            <div class="setup-grid">
+                <div class="setup-item">
+                    <span class="setup-icon">✦</span>
+                    <div><strong>Use Candlestick Charts</strong> Line charts hide key price data. Candlesticks show open, high, low, and close for stronger pattern detection.</div>
+                </div>
+                <div class="setup-item">
+                    <span class="setup-icon">✦</span>
+                    <div><strong>Show Volume</strong> Volume confirms pattern validity. Always have volume bars visible at the bottom of your chart.</div>
+                </div>
+                <div class="setup-item">
+                    <span class="setup-icon">✦</span>
+                    <div><strong>Keep It Clean</strong> Remove excessive indicators, drawing tools, and annotations before uploading. Less clutter means better analysis.</div>
+                </div>
+                <div class="setup-item">
+                    <span class="setup-icon">✦</span>
+                    <div><strong>Include Enough History</strong> Show at least 3–6 months of price history so the AI has enough context to identify meaningful patterns.</div>
+                </div>
+                <div class="setup-item">
+                    <span class="setup-icon">✦</span>
+                    <div><strong>Mobile Screenshots Welcome</strong> Screenshotting from your phone works great. Just make sure the chart fills most of the image.</div>
+                </div>
+                <div class="setup-item">
+                    <span class="setup-icon">✦</span>
+                    <div><strong>Any Platform Works</strong> TradingView, Robinhood, TD Ameritrade, Webull, thinkorswim — if you can screenshot it, we can read it.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TIER SELECTOR -->
+        <div class="tier-selector">
+            <button class="tier-btn active" id="freeBtn" onclick="setTier('free')">Free Analysis</button>
+            <button class="tier-btn" id="proBtn" onclick="setTier('pro')">Pro Analysis</button>
+        </div>
+
         <div class="upload-area" id="uploadArea">
             <svg class="upload-icon" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M30 10L30 38M30 10L20 20M30 10L40 20" stroke="#0066ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
@@ -638,6 +824,72 @@
         <div class="image-preview-container" id="previewContainer">
             <img id="previewImage" src="" alt="Uploaded chart preview">
         </div>
+
+        <button class="btn-primary analyze-btn" id="analyzeBtn" onclick="analyzeChart()">
+            🔍 Analyze Chart
+        </button>
+
+        <!-- LOADING -->
+        <div class="loading" id="loadingState">
+            <div class="spinner"></div>
+            <p>Analyzing your chart — this takes about 10 seconds...</p>
+        </div>
+
+        <!-- RESULTS -->
+        <div class="analysis-results" id="analysisResults">
+            <div class="results-header">
+                <h3 id="patternName">Pattern Detected</h3>
+                <div class="pattern-badge">
+                    <span class="direction-tag" id="directionTag">Bullish</span>
+                    <span class="confidence-tag" id="confidenceTag">High Confidence</span>
+                </div>
+            </div>
+            <div class="results-body">
+                <p class="result-summary" id="resultSummary"></p>
+                <div class="pro-grid" id="proGrid" style="display:none;">
+                    <div class="pro-item">
+                        <label>Probability</label>
+                        <p id="proProb"></p>
+                    </div>
+                    <div class="pro-item">
+                        <label>Entry Level</label>
+                        <p id="proEntry"></p>
+                    </div>
+                    <div class="pro-item">
+                        <label>Exit Target</label>
+                        <p id="proExit"></p>
+                    </div>
+                    <div class="pro-item">
+                        <label>Stop Loss</label>
+                        <p id="proStop"></p>
+                    </div>
+                    <div class="pro-item">
+                        <label>Timeframe</label>
+                        <p id="proTimeframe"></p>
+                    </div>
+                    <div class="pro-item">
+                        <label>Key Levels</label>
+                        <p id="proLevels"></p>
+                    </div>
+                    <div class="pro-item">
+                        <label>Volume Signal</label>
+                        <p id="proVolume"></p>
+                    </div>
+                    <div class="pro-item">
+                        <label>Key Risks</label>
+                        <p id="proRisk"></p>
+                    </div>
+                </div>
+                <div class="upgrade-prompt" id="upgradePrompt" style="display:none;">
+                    <p>🔒 Upgrade to Pro to unlock probability predictions, entry & exit levels, stop loss, volume analysis, and more.</p>
+                    <a href="#pricing" class="btn-primary">Upgrade to Pro — $19.99/mo</a>
+                </div>
+                <div class="disclaimer-note">
+                    ⚠️ This analysis is for educational purposes only and does not constitute financial advice. Past pattern performance does not guarantee future results. Always do your own research before making any trading decisions.
+                </div>
+            </div>
+        </div>
+
     </section>
 
     <!-- HOW IT WORKS -->
@@ -649,18 +901,57 @@
             <div class="step-card">
                 <div class="step-number">1</div>
                 <h3>Upload Your Chart</h3>
-                <p>Drag and drop or browse for any chart screenshot from TradingView, TD Ameritrade, Robinhood—anywhere.</p>
+                <p>Drag and drop or browse for any chart screenshot from TradingView, TD Ameritrade, Robinhood — anywhere.</p>
             </div>
             <div class="step-card">
                 <div class="step-number">2</div>
                 <h3>AI Identifies the Pattern</h3>
-                <p>Our AI instantly scans your chart and identifies the pattern—head and shoulders, double top, flag, wedge, and more.</p>
+                <p>Our AI instantly scans your chart and identifies the pattern — head and shoulders, double top, flag, wedge, and more.</p>
             </div>
             <div class="step-card">
                 <div class="step-number">3</div>
                 <h3>Get Your Edge</h3>
                 <p>Receive a clear explanation of what the pattern means, historical probability data, and suggested entry and exit levels.</p>
             </div>
+        </div>
+    </section>
+
+    <!-- TIMEFRAME GUIDE -->
+    <section class="timeframe-section" id="timeframes">
+        <div class="section-label">Chart Guide</div>
+        <h2 class="section-title">Choosing the right timeframe</h2>
+        <p class="section-subtitle">The timeframe you use dramatically affects the patterns you'll see and how you should interpret them.</p>
+        <div class="timeframe-grid">
+            <div class="timeframe-card">
+                <div class="timeframe-badge long">Long Term — 1+ Years</div>
+                <h3>Weekly & Monthly Charts</h3>
+                <ul class="timeframe-list">
+                    <li><span>✦</span> Use weekly or monthly candles</li>
+                    <li><span>✦</span> Show 2–5 years of price history</li>
+                    <li><span>✦</span> Patterns are stronger and more reliable</li>
+                    <li><span>✦</span> Filters out short-term noise</li>
+                    <li><span>✦</span> Best for position trading and investing</li>
+                    <li><span>✦</span> Key indicators: 50/200 week MA, volume</li>
+                </ul>
+                <p style="font-size:0.8rem; color:var(--text-secondary); font-style:italic;">A head and shoulders pattern on a weekly chart carries far more weight than the same pattern on a 15-minute chart.</p>
+            </div>
+            <div class="timeframe-card">
+                <div class="timeframe-badge short">Short Term — Under 1 Year</div>
+                <h3>Daily & Hourly Charts</h3>
+                <ul class="timeframe-list">
+                    <li><span>✦</span> Use daily candles as your primary view</li>
+                    <li><span>✦</span> Show 3–12 months of price history</li>
+                    <li><span>✦</span> 1H and 4H charts for entry timing</li>
+                    <li><span>✦</span> Higher frequency = more patterns, more noise</li>
+                    <li><span>✦</span> Best for swing trading (days to weeks)</li>
+                    <li><span>✦</span> Key indicators: 20/50 day MA, RSI, volume</li>
+                </ul>
+                <p style="font-size:0.8rem; color:var(--text-secondary); font-style:italic;">Daily charts are the sweet spot for most retail traders — enough signal to act on without the chaos of intraday noise.</p>
+            </div>
+        </div>
+        <div class="glossary-teaser">
+            <p><strong>Pattern Glossary</strong> — Learn what every pattern means, from bull flags to cup and handle formations.</p>
+            <span class="coming-soon-tag">Coming Soon</span>
         </div>
     </section>
 
@@ -703,16 +994,59 @@
         </div>
     </section>
 
+    <!-- FAQ -->
+    <section class="faq-section" id="faq">
+        <div class="section-label" style="text-align:center;">FAQ</div>
+        <h2 class="section-title" style="text-align:center;">Frequently asked questions</h2>
+        <p class="section-subtitle">Everything you need to know about Alpha Signal.</p>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">What is Alpha Signal and how does it work?<span class="faq-arrow">▾</span></div>
+                <div class="faq-answer">Alpha Signal uses AI to analyze chart screenshots you upload. Our engine identifies technical patterns — like head and shoulders, bull flags, double tops, and wedges — then explains what the pattern historically means and provides probability-based insights to help inform your trading decisions.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">What kind of charts work best?<span class="faq-arrow">▾</span></div>
+                <div class="faq-answer">Candlestick charts with volume displayed give the best results. Make sure your chart is clean — minimal indicators, no excessive drawing tools, and enough price history visible (at least 3–6 months). Charts from any platform work: TradingView, thinkorswim, Webull, Robinhood, TD Ameritrade, and more.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">Which timeframe should I use for long term investing?<span class="faq-arrow">▾</span></div>
+                <div class="faq-answer">For long term views (1+ years), use weekly or monthly candlestick charts with 2–5 years of price history visible. Patterns on higher timeframes carry significantly more weight and filter out short-term noise. Include the 50 and 200 week moving averages if possible, along with volume.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">Which timeframe should I use for short term trading?<span class="faq-arrow">▾</span></div>
+                <div class="faq-answer">For short term views (under 1 year), the daily chart is your best starting point. Show 3–12 months of history. For timing specific entries, you can also upload 1-hour or 4-hour charts. Include the 20 and 50 day moving averages, RSI, and volume for the richest analysis.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">What do the probability predictions mean?<span class="faq-arrow">▾</span></div>
+                <div class="faq-answer">Probability predictions are based on historical performance of identified patterns across thousands of prior occurrences. These are statistical likelihoods based on past data — not guarantees of future performance. Always use them as one input among many in your decision making process.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">Is this financial advice?<span class="faq-arrow">▾</span></div>
+                <div class="faq-answer">No. Alpha Signal is an educational and analytical tool. Nothing on this platform constitutes financial advice, investment advice, or a recommendation to buy or sell any security. All trading involves risk and past pattern performance does not guarantee future results.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">How many free analyses do I get?<span class="faq-arrow">▾</span></div>
+                <div class="faq-answer">Free users get 5 chart analyses per month. This includes pattern identification and a basic explanation. To unlock unlimited analyses, probability predictions, entry and exit level suggestions, and historical success rates, upgrade to Pro for $19.99/month or $149/year.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">When will the AI analysis engine be available?<span class="faq-arrow">▾</span></div>
+                <div class="faq-answer">Alpha Signal is currently in beta. The AI analysis engine is actively being built and will launch soon. Join the waitlist below to be among the first to access it when it goes live.</div>
+            </div>
+        </div>
+    </section>
+
     <!-- WAITLIST -->
     <section class="waitlist" id="waitlist">
         <div class="waitlist-box">
             <h2>Get Early Access</h2>
             <p>Be first to know when Alpha Signal launches. No spam, ever.</p>
-            <div class="email-form">
-                <input type="email" id="emailInput" placeholder="Enter your email">
-                <button class="btn-primary" onclick="handleWaitlist()">Notify Me</button>
-            </div>
-            <p id="waitlistConfirm" style="color:#00ff88; margin-top:16px; font-size:0.85rem; display:none;">You're on the list. We'll be in touch.</p>
+            <form action="https://formspree.io/f/mdalrqpb" method="POST" id="waitlistForm">
+                <div class="email-form">
+                    <input type="email" name="email" id="emailInput" placeholder="Enter your email" required>
+                    <button type="submit" class="btn-primary">Notify Me</button>
+                </div>
+                <p id="waitlistConfirm" style="color:#00ff88; margin-top:16px; font-size:0.85rem; display:none;">You're on the list. We'll be in touch.</p>
+            </form>
         </div>
     </section>
 
@@ -732,6 +1066,16 @@
     </footer>
 
     <script>
+        let currentTier = 'free';
+        let uploadedImageData = null;
+
+        // TIER SELECTOR
+        function setTier(tier) {
+            currentTier = tier;
+            document.getElementById('freeBtn').classList.toggle('active', tier === 'free');
+            document.getElementById('proBtn').classList.toggle('active', tier === 'pro');
+        }
+
         // DRAG AND DROP
         const uploadArea = document.getElementById('uploadArea');
         const fileInput = document.getElementById('fileInput');
@@ -745,17 +1089,13 @@
             uploadArea.classList.add('dragover');
         });
 
-        uploadArea.addEventListener('dragleave', () => {
-            uploadArea.classList.remove('dragover');
-        });
+        uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('dragover'));
 
         uploadArea.addEventListener('drop', (e) => {
             e.preventDefault();
             uploadArea.classList.remove('dragover');
             const file = e.dataTransfer.files[0];
-            if (file && file.type.startsWith('image/')) {
-                showPreview(file);
-            }
+            if (file && file.type.startsWith('image/')) showPreview(file);
         });
 
         fileInput.addEventListener('change', (e) => {
@@ -766,11 +1106,15 @@
         function showPreview(file) {
             const reader = new FileReader();
             reader.onload = (e) => {
-                previewImage.src = e.target.result;
+                uploadedImageData = e.target.result;
+                previewImage.src = uploadedImageData;
                 previewContainer.classList.add('visible');
                 zoomControls.classList.add('visible');
+                document.getElementById('analyzeBtn').classList.add('visible');
+                document.getElementById('analysisResults').classList.remove('visible');
+                document.getElementById('loadingState').classList.remove('visible');
                 currentZoom = 1;
-                previewImage.style.transform = `scale(1)`;
+                previewImage.style.transform = 'scale(1)';
             };
             reader.readAsDataURL(file);
         }
@@ -788,21 +1132,94 @@
 
         document.getElementById('zoomReset').addEventListener('click', () => {
             currentZoom = 1;
-            previewImage.style.transform = `scale(1)`;
+            previewImage.style.transform = 'scale(1)';
         });
 
+        // ANALYZE
+        async function analyzeChart() {
+            if (!uploadedImageData) return;
+
+            document.getElementById('loadingState').classList.add('visible');
+            document.getElementById('analysisResults').classList.remove('visible');
+            document.getElementById('analyzeBtn').disabled = true;
+
+            try {
+                const response = await fetch('/api/analyze', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        image: uploadedImageData,
+                        tier: currentTier
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    displayResults(data.analysis, data.tier);
+                } else {
+                    alert('Analysis failed: ' + (data.error || 'Unknown error'));
+                }
+            } catch (error) {
+                alert('Something went wrong. Please try again.');
+                console.error(error);
+            } finally {
+                document.getElementById('loadingState').classList.remove('visible');
+                document.getElementById('analyzeBtn').disabled = false;
+            }
+        }
+
+        function displayResults(analysis, tier) {
+            document.getElementById('patternName').textContent = analysis.pattern || 'Pattern Detected';
+
+            const dirTag = document.getElementById('directionTag');
+            dirTag.textContent = analysis.direction || 'Neutral';
+            dirTag.className = 'direction-tag ' + (analysis.direction || '').toLowerCase();
+
+            document.getElementById('confidenceTag').textContent = (analysis.confidence || 'Medium') + ' Confidence';
+            document.getElementById('resultSummary').textContent = analysis.summary || '';
+
+            if (tier === 'pro' && analysis.probability) {
+                document.getElementById('proGrid').style.display = 'grid';
+                document.getElementById('upgradePrompt').style.display = 'none';
+                document.getElementById('proProb').textContent = analysis.probability;
+                document.getElementById('proEntry').textContent = analysis.entry;
+                document.getElementById('proExit').textContent = analysis.exit;
+                document.getElementById('proStop').textContent = analysis.stopLoss;
+                document.getElementById('proTimeframe').textContent = analysis.timeframe;
+                document.getElementById('proLevels').textContent = analysis.keyLevels;
+                document.getElementById('proVolume').textContent = analysis.volume;
+                document.getElementById('proRisk').textContent = analysis.risk;
+            } else {
+                document.getElementById('proGrid').style.display = 'none';
+                document.getElementById('upgradePrompt').style.display = 'block';
+            }
+
+            document.getElementById('analysisResults').classList.add('visible');
+            document.getElementById('analysisResults').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
         // WAITLIST
-        function handleWaitlist() {
-            const email = document.getElementById('emailInput').value;
-            if (email && email.includes('@')) {
+        document.getElementById('waitlistForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            fetch('https://formspree.io/f/mdalrqpb', {
+                method: 'POST',
+                body: new FormData(this),
+                headers: { 'Accept': 'application/json' }
+            }).then(() => {
                 document.getElementById('waitlistConfirm').style.display = 'block';
                 document.getElementById('emailInput').value = '';
-            }
+            });
+        });
+
+        // FAQ
+        function toggleFaq(el) {
+            el.parentElement.classList.toggle('open');
         }
 
         // SMOOTH SCROLL
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) target.scrollIntoView({ behavior: 'smooth' });
