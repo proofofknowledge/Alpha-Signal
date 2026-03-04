@@ -1,6 +1,6 @@
 const Anthropic = require('@anthropic-ai/sdk');
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
@@ -12,43 +12,39 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'No image provided' });
     }
 
-    // Extract base64 data from data URL
     const base64Data = image.replace(/^data:image\/(png|jpg|jpeg|gif|webp);base64,/, '');
-    const mediaType = image.match(/^data:(image\/[a-zA-Z]+);base64,/)?.[1] || 'image/jpeg';
+    const mediaTypeMatch = image.match(/^data:(image\/[a-zA-Z]+);base64,/);
+    const mediaType = mediaTypeMatch ? mediaTypeMatch[1] : 'image/jpeg';
 
     const isPro = tier === 'pro';
 
     const freePrompt = `You are an expert technical analyst. Analyze this stock/crypto/forex chart image and identify the primary chart pattern visible.
 
-Respond in this exact JSON format:
+Respond in this exact JSON format with no extra text:
 {
   "pattern": "Pattern Name",
-  "direction": "Bullish/Bearish/Neutral",
-  "confidence": "High/Medium/Low",
-  "summary": "One sentence description of what you see"
-}
-
-Only return the JSON, nothing else.`;
+  "direction": "Bullish",
+  "confidence": "High",
+  "summary": "One to two sentence description of what you see in this chart."
+}`;
 
     const proPrompt = `You are an expert technical analyst with 20+ years of experience. Analyze this stock/crypto/forex chart image in detail.
 
-Respond in this exact JSON format:
+Respond in this exact JSON format with no extra text:
 {
   "pattern": "Pattern Name",
-  "direction": "Bullish/Bearish/Neutral", 
-  "confidence": "High/Medium/Low",
-  "summary": "2-3 sentence description of the pattern",
-  "probability": "XX% historical success rate based on this pattern",
+  "direction": "Bullish",
+  "confidence": "High",
+  "summary": "2-3 sentence description of the pattern and current price action.",
+  "probability": "68% historical success rate based on this pattern type",
   "entry": "Suggested entry level or zone based on the pattern",
-  "exit": "Suggested exit/target level based on pattern projection",
-  "stopLoss": "Suggested stop loss level",
+  "exit": "Suggested exit or target level based on pattern projection",
+  "stopLoss": "Suggested stop loss level to invalidate the pattern",
   "timeframe": "Estimated timeframe for pattern to play out",
-  "keyLevels": "Key support and resistance levels visible",
-  "volume": "What volume is telling us about this pattern",
-  "risk": "Key risks that could invalidate this pattern"
-}
-
-Only return the JSON, nothing else.`;
+  "keyLevels": "Key support and resistance levels visible on the chart",
+  "volume": "What volume is indicating about the strength of this pattern",
+  "risk": "Key risks or conditions that could invalidate this pattern"
+}`;
 
     const anthropic = new Anthropic({
       apiKey: process.env.ANTHROPIC_API_KEY,
@@ -79,7 +75,14 @@ Only return the JSON, nothing else.`;
     });
 
     const responseText = message.content[0].text;
-    const analysis = JSON.parse(responseText);
+    
+    // Clean response in case Claude adds extra text
+    const jsonMatch = responseText.match(/\{[\s\S]*\}/);
+    if (!jsonMatch) {
+      throw new Error('Could not parse AI response');
+    }
+    
+    const analysis = JSON.parse(jsonMatch[0]);
 
     return res.status(200).json({ 
       success: true, 
@@ -94,4 +97,11 @@ Only return the JSON, nothing else.`;
       details: error.message 
     });
   }
-}
+};
+```
+
+Save that, then push to GitHub:
+```
+git add .
+git commit -m "fix analyze.js handler syntax"
+git push origin main
