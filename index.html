@@ -51,10 +51,7 @@
             text-decoration: none;
         }
 
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-        }
+        .logo-icon { width: 40px; height: 40px; }
 
         .nav-logo span {
             font-size: 1.3rem;
@@ -78,9 +75,7 @@
             transition: color 0.2s;
         }
 
-        .nav-links a:hover {
-            color: var(--text-primary);
-        }
+        .nav-links a:hover { color: var(--text-primary); }
 
         .btn-primary {
             background: linear-gradient(135deg, #0066ff, #00aaff);
@@ -96,10 +91,7 @@
             display: inline-block;
         }
 
-        .btn-primary:hover {
-            opacity: 0.9;
-            transform: translateY(-1px);
-        }
+        .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
 
         .btn-outline {
             background: transparent;
@@ -115,9 +107,19 @@
             display: inline-block;
         }
 
-        .btn-outline:hover {
-            background: var(--blue-glow);
+        .btn-outline:hover { background: var(--blue-glow); }
+
+        /* BETA BADGE */
+        .beta-banner {
+            background: linear-gradient(135deg, rgba(0,102,255,0.15), rgba(0,170,255,0.15));
+            border-bottom: 1px solid rgba(0,102,255,0.3);
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 0.85rem;
+            color: var(--blue-light);
         }
+
+        .beta-banner strong { color: white; }
 
         /* HERO */
         .hero {
@@ -181,6 +183,47 @@
             flex-wrap: wrap;
         }
 
+        /* CHART SETUP GUIDE */
+        .setup-guide {
+            background: rgba(0, 102, 255, 0.06);
+            border: 1px solid rgba(0, 102, 255, 0.2);
+            border-radius: 16px;
+            padding: 28px 32px;
+            margin-bottom: 24px;
+        }
+
+        .setup-guide h4 {
+            color: var(--blue-light);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .setup-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .setup-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .setup-item .setup-icon {
+            color: var(--blue-light);
+            font-size: 1rem;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .setup-item strong { color: var(--text-primary); display: block; margin-bottom: 2px; }
+
         /* UPLOAD DEMO AREA */
         .demo-section {
             padding: 60px;
@@ -205,17 +248,8 @@
             box-shadow: 0 0 30px var(--blue-glow);
         }
 
-        .upload-icon {
-            width: 60px;
-            height: 60px;
-            margin: 0 auto 20px;
-            opacity: 0.6;
-        }
-
-        .upload-area h3 {
-            font-size: 1.2rem;
-            margin-bottom: 8px;
-        }
+        .upload-icon { width: 60px; height: 60px; margin: 0 auto 20px; opacity: 0.6; }
+        .upload-area h3 { font-size: 1.2rem; margin-bottom: 8px; }
 
         .upload-area p {
             color: var(--text-secondary);
@@ -223,9 +257,7 @@
             margin-bottom: 20px;
         }
 
-        .upload-area input[type="file"] {
-            display: none;
-        }
+        .upload-area input[type="file"] { display: none; }
 
         .free-badge {
             display: inline-block;
@@ -239,6 +271,13 @@
             margin-top: 16px;
         }
 
+        .coming-soon-note {
+            margin-top: 16px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
         /* ZOOM CONTROLS */
         .zoom-controls {
             display: none;
@@ -247,9 +286,7 @@
             margin-top: 16px;
         }
 
-        .zoom-controls.visible {
-            display: flex;
-        }
+        .zoom-controls.visible { display: flex; }
 
         .zoom-btn {
             background: var(--dark-card);
@@ -266,10 +303,7 @@
             justify-content: center;
         }
 
-        .zoom-btn:hover {
-            border-color: var(--blue-primary);
-            color: var(--blue-light);
-        }
+        .zoom-btn:hover { border-color: var(--blue-primary); color: var(--blue-light); }
 
         .image-preview-container {
             display: none;
@@ -280,9 +314,7 @@
             border: 1px solid var(--dark-border);
         }
 
-        .image-preview-container.visible {
-            display: block;
-        }
+        .image-preview-container.visible { display: block; }
 
         #previewImage {
             width: 100%;
@@ -292,10 +324,7 @@
         }
 
         /* HOW IT WORKS */
-        .how-it-works {
-            padding: 80px 60px;
-            text-align: center;
-        }
+        .how-it-works { padding: 80px 60px; text-align: center; }
 
         .section-label {
             color: var(--blue-light);
@@ -355,22 +384,110 @@
             margin-bottom: 20px;
         }
 
-        .step-card h3 {
-            font-size: 1.05rem;
-            font-weight: 700;
-            margin-bottom: 10px;
+        .step-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; }
+        .step-card p { color: var(--text-secondary); font-size: 0.9rem; }
+
+        /* TIMEFRAME GUIDE */
+        .timeframe-section { padding: 80px 60px; text-align: center; }
+
+        .timeframe-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .step-card p {
+        .timeframe-card {
+            background: var(--dark-card);
+            border: 1px solid var(--dark-border);
+            border-radius: 16px;
+            padding: 32px 28px;
+            text-align: left;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .timeframe-card:hover {
+            border-color: var(--blue-primary);
+            box-shadow: 0 0 20px var(--blue-glow);
+        }
+
+        .timeframe-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .timeframe-badge.long {
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            color: #00ff88;
+        }
+
+        .timeframe-badge.short {
+            background: rgba(0, 170, 255, 0.1);
+            border: 1px solid rgba(0, 170, 255, 0.3);
+            color: var(--blue-light);
+        }
+
+        .timeframe-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 12px; }
+
+        .timeframe-list {
+            list-style: none;
+            margin-bottom: 16px;
+        }
+
+        .timeframe-list li {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            padding: 6px 0;
+            border-bottom: 1px solid var(--dark-border);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .timeframe-list li:last-child { border-bottom: none; }
+        .timeframe-list li span { color: var(--blue-light); }
+
+        /* PATTERN GLOSSARY TEASER */
+        .glossary-teaser {
+            background: linear-gradient(135deg, rgba(0,102,255,0.08), rgba(0,170,255,0.08));
+            border: 1px solid rgba(0,102,255,0.2);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-top: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 800px;
+            margin: 24px auto 0;
+        }
+
+        .glossary-teaser p {
             color: var(--text-secondary);
             font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .glossary-teaser strong { color: var(--text-primary); }
+
+        .coming-soon-tag {
+            background: rgba(255, 170, 0, 0.1);
+            border: 1px solid rgba(255, 170, 0, 0.3);
+            color: #ffaa00;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            white-space: nowrap;
         }
 
         /* PRICING */
-        .pricing {
-            padding: 80px 60px;
-            text-align: center;
-        }
+        .pricing { padding: 80px 60px; text-align: center; }
 
         .pricing-grid {
             display: grid;
@@ -424,22 +541,11 @@
             letter-spacing: -1px;
         }
 
-        .pricing-price span {
-            font-size: 1rem;
-            font-weight: 400;
-            color: var(--text-secondary);
-        }
+        .pricing-price span { font-size: 1rem; font-weight: 400; color: var(--text-secondary); }
 
-        .pricing-desc {
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-            margin-bottom: 24px;
-        }
+        .pricing-desc { color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 24px; }
 
-        .pricing-features {
-            list-style: none;
-            margin-bottom: 28px;
-        }
+        .pricing-features { list-style: none; margin-bottom: 28px; }
 
         .pricing-features li {
             font-size: 0.9rem;
@@ -451,27 +557,57 @@
             color: var(--text-secondary);
         }
 
-        .pricing-features li:last-child {
-            border-bottom: none;
+        .pricing-features li:last-child { border-bottom: none; }
+        .check { color: #00ff88; font-weight: 700; flex-shrink: 0; }
+        .x-mark { color: #ff4455; font-weight: 700; flex-shrink: 0; }
+
+        /* FAQ */
+        .faq-section { padding: 80px 60px; }
+
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .check {
-            color: #00ff88;
-            font-weight: 700;
+        .faq-item {
+            border-bottom: 1px solid var(--dark-border);
+            padding: 20px 0;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            gap: 16px;
+        }
+
+        .faq-question:hover { color: var(--blue-light); }
+
+        .faq-arrow {
+            color: var(--blue-light);
+            font-size: 1.2rem;
+            transition: transform 0.3s;
             flex-shrink: 0;
         }
 
-        .x-mark {
-            color: #ff4455;
-            font-weight: 700;
-            flex-shrink: 0;
+        .faq-item.open .faq-arrow { transform: rotate(180deg); }
+
+        .faq-answer {
+            display: none;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            padding-top: 14px;
         }
+
+        .faq-item.open .faq-answer { display: block; }
 
         /* WAITLIST */
-        .waitlist {
-            padding: 80px 60px;
-            text-align: center;
-        }
+        .waitlist { padding: 80px 60px; text-align: center; }
 
         .waitlist-box {
             background: var(--dark-card);
@@ -482,11 +618,7 @@
             margin: 0 auto;
         }
 
-        .waitlist-box h2 {
-            font-size: 1.8rem;
-            font-weight: 800;
-            margin-bottom: 12px;
-        }
+        .waitlist-box h2 { font-size: 1.8rem; font-weight: 800; margin-bottom: 12px; }
 
         .waitlist-box p {
             color: var(--text-secondary);
@@ -494,10 +626,7 @@
             font-size: 0.95rem;
         }
 
-        .email-form {
-            display: flex;
-            gap: 12px;
-        }
+        .email-form { display: flex; gap: 12px; }
 
         .email-form input {
             flex: 1;
@@ -511,13 +640,8 @@
             transition: border-color 0.2s;
         }
 
-        .email-form input:focus {
-            border-color: var(--blue-primary);
-        }
-
-        .email-form input::placeholder {
-            color: var(--text-secondary);
-        }
+        .email-form input:focus { border-color: var(--blue-primary); }
+        .email-form input::placeholder { color: var(--text-secondary); }
 
         /* DISCLAIMER */
         .disclaimer {
@@ -543,10 +667,7 @@
             align-items: center;
         }
 
-        footer p {
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-        }
+        footer p { color: var(--text-secondary); font-size: 0.85rem; }
 
         footer a {
             color: var(--text-secondary);
@@ -555,14 +676,8 @@
             transition: color 0.2s;
         }
 
-        footer a:hover {
-            color: var(--text-primary);
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 24px;
-        }
+        footer a:hover { color: var(--text-primary); }
+        .footer-links { display: flex; gap: 24px; }
 
         /* RESPONSIVE */
         @media (max-width: 768px) {
@@ -570,17 +685,28 @@
             .hero { padding: 60px 24px 40px; }
             .hero h1 { font-size: 2.2rem; }
             .demo-section { padding: 40px 24px; }
+            .setup-grid { grid-template-columns: 1fr; }
             .how-it-works { padding: 60px 24px; }
             .steps-grid { grid-template-columns: 1fr; }
+            .timeframe-section { padding: 60px 24px; }
+            .timeframe-grid { grid-template-columns: 1fr; }
             .pricing { padding: 60px 24px; }
             .pricing-grid { grid-template-columns: 1fr; }
+            .faq-section { padding: 60px 24px; }
             .waitlist { padding: 60px 24px; }
             .email-form { flex-direction: column; }
+            .glossary-teaser { flex-direction: column; gap: 12px; text-align: center; }
             footer { flex-direction: column; gap: 16px; text-align: center; }
+            .disclaimer { padding: 40px 24px; }
         }
     </style>
 </head>
 <body>
+
+    <!-- BETA BANNER -->
+    <div class="beta-banner">
+        🚀 <strong>Alpha Signal is in Beta</strong> — AI analysis engine launching soon. Join the waitlist for early access.
+    </div>
 
     <!-- NAV -->
     <nav>
@@ -599,7 +725,9 @@
         </a>
         <div class="nav-links">
             <a href="#how-it-works">How It Works</a>
+            <a href="#timeframes">Chart Guide</a>
             <a href="#pricing">Pricing</a>
+            <a href="#faq">FAQ</a>
             <a href="#waitlist" class="btn-primary">Get Early Access</a>
         </div>
     </nav>
@@ -617,6 +745,38 @@
 
     <!-- UPLOAD DEMO -->
     <section class="demo-section" id="demo">
+
+        <!-- CHART SETUP GUIDE -->
+        <div class="setup-guide">
+            <h4>📊 For Best Results — Set Up Your Chart Like This</h4>
+            <div class="setup-grid">
+                <div class="setup-item">
+                    <span class="setup-icon">✦</span>
+                    <div><strong>Use Candlestick Charts</strong> Line charts hide key price data. Candlesticks show open, high, low, and close for stronger pattern detection.</div>
+                </div>
+                <div class="setup-item">
+                    <span class="setup-icon">✦</span>
+                    <div><strong>Show Volume</strong> Volume confirms pattern validity. Always have volume bars visible at the bottom of your chart.</div>
+                </div>
+                <div class="setup-item">
+                    <span class="setup-icon">✦</span>
+                    <div><strong>Keep It Clean</strong> Remove excessive indicators, drawing tools, and annotations before uploading. Less clutter means better analysis.</div>
+                </div>
+                <div class="setup-item">
+                    <span class="setup-icon">✦</span>
+                    <div><strong>Include Enough History</strong> Show at least 3–6 months of price history so the AI has enough context to identify meaningful patterns.</div>
+                </div>
+                <div class="setup-item">
+                    <span class="setup-icon">✦</span>
+                    <div><strong>Mobile Screenshots Welcome</strong> Screenshotting from your phone works great. Just make sure the chart fills most of the image.</div>
+                </div>
+                <div class="setup-item">
+                    <span class="setup-icon">✦</span>
+                    <div><strong>Any Platform Works</strong> TradingView, Robinhood, TD Ameritrade, Webull, thinkorswim — if you can screenshot it, we can read it.</div>
+                </div>
+            </div>
+        </div>
+
         <div class="upload-area" id="uploadArea">
             <svg class="upload-icon" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M30 10L30 38M30 10L20 20M30 10L40 20" stroke="#0066ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
@@ -627,6 +787,7 @@
             <label for="fileInput" class="btn-primary" style="cursor:pointer;">Browse Files</label>
             <input type="file" id="fileInput" accept="image/*">
             <div class="free-badge">✦ 5 Free Analyses Per Month</div>
+            <p class="coming-soon-note">⚡ AI analysis engine coming soon — join the waitlist below to be first in line</p>
         </div>
 
         <div class="zoom-controls" id="zoomControls">
@@ -649,18 +810,57 @@
             <div class="step-card">
                 <div class="step-number">1</div>
                 <h3>Upload Your Chart</h3>
-                <p>Drag and drop or browse for any chart screenshot from TradingView, TD Ameritrade, Robinhood—anywhere.</p>
+                <p>Drag and drop or browse for any chart screenshot from TradingView, TD Ameritrade, Robinhood — anywhere.</p>
             </div>
             <div class="step-card">
                 <div class="step-number">2</div>
                 <h3>AI Identifies the Pattern</h3>
-                <p>Our AI instantly scans your chart and identifies the pattern—head and shoulders, double top, flag, wedge, and more.</p>
+                <p>Our AI instantly scans your chart and identifies the pattern — head and shoulders, double top, flag, wedge, and more.</p>
             </div>
             <div class="step-card">
                 <div class="step-number">3</div>
                 <h3>Get Your Edge</h3>
                 <p>Receive a clear explanation of what the pattern means, historical probability data, and suggested entry and exit levels.</p>
             </div>
+        </div>
+    </section>
+
+    <!-- TIMEFRAME GUIDE -->
+    <section class="timeframe-section" id="timeframes">
+        <div class="section-label">Chart Guide</div>
+        <h2 class="section-title">Choosing the right timeframe</h2>
+        <p class="section-subtitle">The timeframe you use dramatically affects the patterns you'll see and how you should interpret them.</p>
+        <div class="timeframe-grid">
+            <div class="timeframe-card">
+                <div class="timeframe-badge long">Long Term — 1+ Years</div>
+                <h3>Weekly & Monthly Charts</h3>
+                <ul class="timeframe-list">
+                    <li><span>✦</span> Use weekly or monthly candles</li>
+                    <li><span>✦</span> Show 2–5 years of price history</li>
+                    <li><span>✦</span> Patterns are stronger and more reliable</li>
+                    <li><span>✦</span> Filters out short-term noise</li>
+                    <li><span>✦</span> Best for position trading and investing</li>
+                    <li><span>✦</span> Key indicators: 50/200 week MA, volume</li>
+                </ul>
+                <p style="font-size:0.8rem; color:var(--text-secondary); font-style:italic;">A head and shoulders pattern on a weekly chart carries far more weight than the same pattern on a 15-minute chart.</p>
+            </div>
+            <div class="timeframe-card">
+                <div class="timeframe-badge short">Short Term — Under 1 Year</div>
+                <h3>Daily & Hourly Charts</h3>
+                <ul class="timeframe-list">
+                    <li><span>✦</span> Use daily candles as your primary view</li>
+                    <li><span>✦</span> Show 3–12 months of price history</li>
+                    <li><span>✦</span> 1H and 4H charts for entry timing</li>
+                    <li><span>✦</span> Higher frequency = more patterns, more noise</li>
+                    <li><span>✦</span> Best for swing trading (days to weeks)</li>
+                    <li><span>✦</span> Key indicators: 20/50 day MA, RSI, volume</li>
+                </ul>
+                <p style="font-size:0.8rem; color:var(--text-secondary); font-style:italic;">Daily charts are the sweet spot for most retail traders — enough signal to act on without the chaos of intraday noise.</p>
+            </div>
+        </div>
+        <div class="glossary-teaser">
+            <p><strong>Pattern Glossary</strong> — Learn what every pattern means, from bull flags to cup and handle formations.</p>
+            <span class="coming-soon-tag">Coming Soon</span>
         </div>
     </section>
 
@@ -700,6 +900,80 @@
                 </ul>
                 <a href="#waitlist" class="btn-primary" style="width:100%; text-align:center;">Get Pro Access</a>
             </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section" id="faq">
+        <div class="section-label" style="text-align:center;">FAQ</div>
+        <h2 class="section-title" style="text-align:center;">Frequently asked questions</h2>
+        <p class="section-subtitle">Everything you need to know about Alpha Signal.</p>
+        <div class="faq-grid">
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    What is Alpha Signal and how does it work?
+                    <span class="faq-arrow">▾</span>
+                </div>
+                <div class="faq-answer">Alpha Signal uses AI to analyze chart screenshots you upload. Our engine identifies technical patterns — like head and shoulders, bull flags, double tops, and wedges — then explains what the pattern historically means and provides probability-based insights to help inform your trading decisions. Simply upload any chart screenshot and let the AI do the reading.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    What kind of charts work best?
+                    <span class="faq-arrow">▾</span>
+                </div>
+                <div class="faq-answer">Candlestick charts with volume displayed give the best results. Make sure your chart is clean — minimal indicators, no excessive drawing tools, and enough price history visible (at least 3–6 months). Charts from any platform work: TradingView, thinkorswim, Webull, Robinhood, TD Ameritrade, and more. Mobile screenshots are fully supported.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    Which timeframe should I use for long term investing?
+                    <span class="faq-arrow">▾</span>
+                </div>
+                <div class="faq-answer">For long term views (1+ years), use weekly or monthly candlestick charts with 2–5 years of price history visible. Patterns on higher timeframes carry significantly more weight and filter out short-term noise. Include the 50 and 200 week moving averages if possible, along with volume. These charts are best suited for position trading and long term investment decisions.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    Which timeframe should I use for short term trading?
+                    <span class="faq-arrow">▾</span>
+                </div>
+                <div class="faq-answer">For short term views (under 1 year), the daily chart is your best starting point. Show 3–12 months of history. For timing specific entries, you can also upload 1-hour or 4-hour charts. Include the 20 and 50 day moving averages, RSI, and volume for the richest analysis. Daily charts strike the right balance between signal clarity and actionable timing.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    What do the probability predictions mean?
+                    <span class="faq-arrow">▾</span>
+                </div>
+                <div class="faq-answer">Probability predictions are based on historical performance of identified patterns across thousands of prior occurrences. For example, if a bull flag pattern has historically resolved to the upside 68% of the time, Alpha Signal will reflect that. These are statistical likelihoods based on past data — not guarantees of future performance. Always use them as one input among many in your decision making process.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    Is this financial advice?
+                    <span class="faq-arrow">▾</span>
+                </div>
+                <div class="faq-answer">No. Alpha Signal is an educational and analytical tool. Nothing on this platform constitutes financial advice, investment advice, or a recommendation to buy or sell any security. All trading involves risk and past pattern performance does not guarantee future results. Always conduct your own research and consult a qualified financial advisor before making investment decisions.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    How many free analyses do I get?
+                    <span class="faq-arrow">▾</span>
+                </div>
+                <div class="faq-answer">Free users get 5 chart analyses per month. This includes pattern identification and a basic explanation. To unlock unlimited analyses, probability predictions, entry and exit level suggestions, and historical success rates, upgrade to Pro for $19.99/month or $149/year.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    When will the AI analysis engine be available?
+                    <span class="faq-arrow">▾</span>
+                </div>
+                <div class="faq-answer">Alpha Signal is currently in beta. The AI analysis engine is actively being built and will launch soon. Join the waitlist below to be among the first to access it when it goes live. Early waitlist members will receive priority access and an introductory offer.</div>
+            </div>
+
         </div>
     </section>
 
@@ -755,9 +1029,7 @@
             e.preventDefault();
             uploadArea.classList.remove('dragover');
             const file = e.dataTransfer.files[0];
-            if (file && file.type.startsWith('image/')) {
-                showPreview(file);
-            }
+            if (file && file.type.startsWith('image/')) showPreview(file);
         });
 
         fileInput.addEventListener('change', (e) => {
@@ -772,7 +1044,7 @@
                 previewContainer.classList.add('visible');
                 zoomControls.classList.add('visible');
                 currentZoom = 1;
-                previewImage.style.transform = `scale(1)`;
+                previewImage.style.transform = 'scale(1)';
             };
             reader.readAsDataURL(file);
         }
@@ -790,7 +1062,7 @@
 
         document.getElementById('zoomReset').addEventListener('click', () => {
             currentZoom = 1;
-            previewImage.style.transform = `scale(1)`;
+            previewImage.style.transform = 'scale(1)';
         });
 
         // WAITLIST FORM
@@ -805,6 +1077,12 @@
                 document.getElementById('emailInput').value = '';
             });
         });
+
+        // FAQ TOGGLE
+        function toggleFaq(el) {
+            const item = el.parentElement;
+            item.classList.toggle('open');
+        }
 
         // SMOOTH SCROLL
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
