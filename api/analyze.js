@@ -98,10 +98,3 @@ Respond in this exact JSON format with no extra text:
     });
   }
 };
-```
-
-Save that, then push to GitHub:
-```
-git add .
-git commit -m "fix analyze.js handler syntax"
-git push origin main
